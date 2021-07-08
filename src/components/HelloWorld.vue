@@ -27,14 +27,34 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+  <div class="flex-center">
+    <button @click="ADD">+</button>
+     <span>{{count}}</span>
+     <button @click="SUB">-</button>
+  </div>
+   
   </div>
 </template>
 
 <script>
+import {mapState,mapMutations} from 'vuex'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data(){
+    return {
+    }
+  },
+  computed:{
+    ...mapState(['count']),
+    
+  },
+  methods:{
+    ...mapMutations(['ADD','SUB']),
+    
   }
 }
 </script>
@@ -54,5 +74,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.flex-center{
+  margin:auto;
 }
 </style>
